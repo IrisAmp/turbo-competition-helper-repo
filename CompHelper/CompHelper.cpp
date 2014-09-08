@@ -2,6 +2,7 @@
 //
 
 #include "stdafx.h"
+#include "Helper.h"
 
 
 int _tmain(int argc, _TCHAR* argv[])
