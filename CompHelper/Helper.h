@@ -30,8 +30,15 @@
 
 #define PI 3.141592653589793238462643383279
 
-typedef std::vector<std::string> StringList_t;
+#define MATH_PI  3.1415926535897932384626433832795028841971693993751058
+#define MATH_E   2.7182818284590452353602874713526624977572470936999595
+#define MATH_PHI 1.6180339887498948482045868343656381177203091798057628
 
+typedef std::vector<std::string> StringList_t;
+typedef std::vector<int> IntList_t;
+
+
+// Function to parse a file as a series of std::strings.
 StringList_t parseFile(const char *fileName)
 {
 	// Open the file.
@@ -52,8 +59,64 @@ StringList_t parseFile(const char *fileName)
 		result.push_back(line);
 	}
 
+	// Cleanup
+	inFile.close();
+
 	// Return the result.
 	return result;
+}
+StringList_t parseFile(std::string fileName)
+{
+	return parseFile(fileName.c_str());
+}
+
+
+// Function to parse a file that is a series of integer values.
+IntList_t parseIntFile(const char *fileName, const char *delimiter)
+{
+	// Open the file
+	std::ifstream inFile;
+	inFile.open(fileName, std::ios::in);
+	
+	// Break operation if there is a FIO err.
+	if (!inFile.is_open())
+		throw new std::exception("Error in function \"parseIntFile(const char *fileName, const char *delimiter)\" - File could not be oppened.");
+
+	// Allocate memory
+	std::string line;
+	StringList_t lines;
+
+	// Read the entire file.
+	while(std::getline(inFile, line))
+	{
+		lines.push_back(line);
+	}
+	
+	// TODO: IMPLEMENT THE REST OF THE PARSER
+
+	// Cleanup
+	inFile.close();
+
+	// Return the result.
+	return new IntList_t;
+}
+
+
+void appendToOutput(std::string writeMe)
+{
+	// Open the file (in append mode)
+	std::ofstream outFile;
+	outFile.open("Output.txt", std::ios::out || std::ios::app);
+
+	// Break operation if there is an FIO err.
+	if(!outFile.is_open())
+		throw new std::exception("Error in function \"appendToOutput(std::string)\" - File could not be oppened.");
+
+	// Write the line
+	outFile << writeMe;
+
+	// Cleanup.
+	outFile.close();
 }
 
 /**
