@@ -31,7 +31,10 @@
 #define MATH_PHI 1.6180339887498948482045868343656381177203091798057628
 
 typedef std::vector<std::string> StringList_t;
+typedef std::vector<int> IntList_t;
 
+
+// Function to parse a file as a series of std::strings.
 StringList_t parseFile(const char *fileName)
 {
 	// Open the file.
@@ -63,6 +66,38 @@ StringList_t parseFile(std::string fileName)
 	return parseFile(fileName.c_str());
 }
 
+
+// Function to parse a file that is a series of integer values.
+IntList_t parseIntFile(const char *fileName, const char *delimiter)
+{
+	// Open the file
+	std::ifstream inFile;
+	inFile.open(filename, std::ios::in);
+	
+	// Break operation if there is a FIO err.
+	if (!inFile.is_open())
+		throw new std::exception("Error in function \"parseIntFile(const char *fileName, const char *delimiter)\" - File could not be oppened.");
+
+	// Allocate memory
+	std::string line;
+	StringList_t lines;
+
+	// Read the entire file.
+	while(std::getline(inFile, line))
+	{
+		lines.push_back(line);
+	}
+	
+	// TODO: IMPLEMENT THE REST OF THE PARSER
+
+	// Cleanup
+	inFile.close();
+
+	// Return the result.
+	return new IntList_t;
+}
+
+
 void appendToOutput(std::string writeMe)
 {
 	// Open the file (in append mode)
@@ -79,5 +114,7 @@ void appendToOutput(std::string writeMe)
 	// Cleanup.
 	outFile.close();
 }
+
+
 
 #endif//__COMP_HELPER_H_DEFINED__
