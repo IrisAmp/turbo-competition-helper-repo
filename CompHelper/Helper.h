@@ -72,7 +72,7 @@ StringList_t parseFile(std::string fileName)
 
 
 // Function to parse a file that is a series of integer values.
-IntList_t parseIntFile(const char *fileName, const char *delimiter)
+IntList_t * parseIntFile(const char *fileName, const char *delimiter)
 {
 	// Open the file
 	std::ifstream inFile;
@@ -101,6 +101,29 @@ IntList_t parseIntFile(const char *fileName, const char *delimiter)
 	return new IntList_t;
 }
 
+/*
+*	Converts an integer string into an integer
+*	This function will throw an exception if non-numerical characters
+*	are contained in the string.
+*/
+static int StringToInteger(std::string in)
+{
+	int output = 0;
+	for(int i = 0; i < in.size(); i++)
+	{
+		output *= 10;
+		if(in.at(i) >= '0' && in.at(i) <= '9')
+		{
+			output += (int)in.at(i) - '0';
+		}
+		else
+		{
+			throw new std::exception("Error in StringToInteger - non-numerical character found.");
+		}
+	}
+
+	return output;
+}
 
 void appendToOutput(std::string writeMe)
 {
@@ -141,7 +164,7 @@ static void StrReplace(std::string& str, const std::string& oldStr, const std::s
 **/
 static std::vector<std::string> SplitString(const std::string &s, char delim) 
 {
-	std::vector<std::string> elems;
+	StringList_t elems;
 	std::stringstream ss(s);
 	std::string item;
 
