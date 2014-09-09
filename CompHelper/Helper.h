@@ -217,4 +217,14 @@ static bool StrCompare(std::string& str1, std::string& str2)
 	return str1.size() == str2.size() && str1 == str2;
 }
 
+// Angle conversion
+float rtodeg(float x)
+{
+	return x * 180/MATH_PI;
+}
+float degtor(float x)
+{
+	return x * MATH_PI/180;
+}
+
 #endif//__COMP_HELPER_H_DEFINED__
