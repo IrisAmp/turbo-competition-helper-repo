@@ -28,8 +28,6 @@
 #include <sstream>
 #include <math.h>
 
-#define PI 3.141592653589793238462643383279
-
 #define MATH_PI  3.1415926535897932384626433832795028841971693993751058
 #define MATH_E   2.7182818284590452353602874713526624977572470936999595
 #define MATH_PHI 1.6180339887498948482045868343656381177203091798057628
@@ -37,6 +35,8 @@
 typedef std::vector<std::string> StringList_t;
 typedef std::vector<int> IntList_t;
 
+// every element in a collection
+#define for_e(elem,collection) for(auto &elem : collection)
 
 // Function to parse a file as a series of std::strings.
 StringList_t parseFile(const char *fileName)
@@ -180,7 +180,7 @@ static std::vector<std::string> SplitString(const std::string &s, char delim)
 */
 static float NormalizeAngle(float angle)
 {
-	angle = fmod(angle, 2*PI);
+	return fmod(angle, 2*MATH_PI);
 }
 
 /*
