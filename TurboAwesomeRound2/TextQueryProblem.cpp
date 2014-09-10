@@ -4,6 +4,12 @@
 
 using namespace std;
 
+void printme(string toPrint)
+{
+		//	f::w("true\n", fileo);
+			printf(toPrint.c_str());
+}
+
 void SolveQueryProblem(string filei, string file)
 {
 	StringList_t q;
@@ -12,6 +18,11 @@ void SolveQueryProblem(string filei, string file)
 	int i = 0;
 	for_e(a, parseFile(filei))
 	{
+		if(i == 0)
+		{
+			printme(a);
+			printme("\n");
+		}
 		if(i%2 == 0 && i != 0)
 		{
 			body.pb(toUpper(a));
@@ -72,10 +83,8 @@ void SolveQueryProblem(string filei, string file)
 		}
 
 		if(isGood)
-		//	f::w("true\n", fileo);
-			printf("true\n");
+			printme("true\n");
 		else
-			printf("false\n");
-		//	f::w("false\n", fileo);
+			printme("false\n");
 	}
 }
