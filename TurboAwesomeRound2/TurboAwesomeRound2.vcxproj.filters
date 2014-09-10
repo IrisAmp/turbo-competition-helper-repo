@@ -23,13 +23,25 @@
     <ClCompile Include="TurboAwesomeRound2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\%40SOFTWARE\GitHub\turbo-competition-helper-repo\TurboAwesomeRound2\Helper.cpp">
+    <ClCompile Include="Helper.cpp">
       <Filter>Source Files\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="TextQueryProblem.cpp">
+      <Filter>Source Files\Solutions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\%40SOFTWARE\GitHub\turbo-competition-helper-repo\TurboAwesomeRound2\Helper.h">
+    <ClInclude Include="Helper.h">
       <Filter>Source Files\Helper</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="TextQueryProblem.h">
+      <Filter>Source Files\Solutions</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TurboAwesomeRound2.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

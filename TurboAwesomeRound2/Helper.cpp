@@ -122,7 +122,7 @@ void appendStringListToOutput(StringList_t writeMe, std::string fileName = "Outp
 
 /*----------------------------------------------------------------------------
 		STRING MANIPULATION                                                 */
-void removeAllChar(std::string inString, const char removeMe)
+std::string removeAllChar(std::string &inString, const char removeMe)
 {
 	inString.erase(
 		std::remove(
@@ -130,6 +130,7 @@ void removeAllChar(std::string inString, const char removeMe)
 			inString.end(),
 			removeMe),
 		inString.end());
+	return inString;
 }
 StringList_t splitString(const std::string inString, char delimiter)
 {
@@ -143,6 +144,23 @@ StringList_t splitString(const std::string inString, char delimiter)
 	}
 
 	return elems;
+}
+std::string toUpper(std::string &inString)
+{
+	for (std::string::iterator p = inString.begin(); inString.end() != p; ++p)
+		*p = toupper(*p);
+	return inString;
+}
+std::string removeString(std::string &inString, std::string removeMe)
+{
+	int pos = inString.find(removeMe);
+	try{
+		inString.replace(pos, removeMe.size(), "");}
+	catch(...)
+	{
+
+	}
+	return inString;
 }
 
 /*----------------------------------------------------------------------------

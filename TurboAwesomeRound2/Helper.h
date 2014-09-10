@@ -45,6 +45,7 @@ typedef std::vector<int> IntList_t;
 
 // every element in a collection
 #define for_e(elem,collection) for(auto &elem : collection)
+#define for_i(elem,collection) for(auto elem = collection.begin(); elem != collection.end() && collection.size() > 0; elem++)
 // debug output that lists the variable name
 #define debug(vari) std::cerr<<#vari<<"="<<(vari)<<std::endl;
 // for map, pair
@@ -72,8 +73,10 @@ void appendStringListToOutput(StringList_t writeMe, std::string fileName);
 
 /*----------------------------------------------------------------------------
 		STRING MANIPULATION                                                 */
-void removeAllChar(std::string inString, char removeMe);
+std::string removeAllChar(std::string &inString, char removeMe);
 StringList_t splitString(const std::string inString, char delimiter);
+std::string toUpper(std::string &inString);
+std::string removeString(std::string &inString, std::string removeMe);
 
 /*----------------------------------------------------------------------------
 		MATH                                                                */
@@ -83,6 +86,5 @@ bool IsBetween(float num, float a, float b);
 float rtodeg(float radians);
 float degtor(float degrees);
 float convertScales(float, float, float, float, float);
-
 
 #endif//__TURBO_HELPER_H_DEFINED__
