@@ -37,9 +37,6 @@ namespace help
 			std::string>					ss;
 		typedef std::tuple<std::string,
 			std::string, std::string>		sss;
-		
-		template <class T> using			v
-			= std::vector<T>;
 	}
 	namespace f // File
 	{
