@@ -132,11 +132,34 @@ void appendToOutput(std::string writeMe)
 		throw new std::exception("Error in function \"appendToOutput(std::string)\" - File could not be oppened.");
 
 	// Write the line
+	writeMe += '\n';
 	outFile << writeMe;
 
 	// Cleanup.
 	outFile.close();
 }
+
+void appendStringListToOutput(StringList_t lines)
+{
+	// Open the file (in append mode)
+	std::ofstream outFile;
+	outFile.open("Output.txt", std::ios::out || std::ios::app);
+
+	// Break operation if there is an FIO err.
+	if(!outFile.is_open())
+		throw new std::exception("Error in function \"appendToOutput(std::string)\" - File could not be oppened.");
+
+	// Write the lines
+	for (std::string line : lines)
+	{
+		line += '\n';
+		outFile << line;
+	}
+
+	// Cleanup.
+	outFile.close();
+}
+
 
 /**
 *	Find a string in a string and replace it with another string
@@ -251,5 +274,13 @@ float degtor(float x)
 	return x * MATH_PI/180;
 }
 
+
+// Remove all of one character from a string
+void removeAllChar(std::string s, char c)
+{
+	// std::remove deletes all c
+	// s.erase shortens the string to its new proper value
+	s.erase(std::remove(s.begin(), s.end(), c), s.end());
+}
 
 #endif//__COMP_HELPER_H_DEFINED__
