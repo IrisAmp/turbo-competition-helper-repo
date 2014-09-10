@@ -145,8 +145,10 @@ namespace help
 	}
 	namespace f // File
 	{
-		auto r  = static_cast<StringList_t(*)(const char*)>(parseFile);
-		auto r2 = static_cast<StringList_t(*)(std::string)>(parseFile);
+		auto r  = static_cast<StringList_t(*)
+			(const char*)>(parseFile);
+		auto r2 = static_cast<StringList_t(*)
+			(std::string)>(parseFile);
 		auto ri = parseIntFile;
 		auto w  = appendToOutput;
 		auto wl = appendStringListToOutput;
