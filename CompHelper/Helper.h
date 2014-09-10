@@ -113,8 +113,6 @@ float degtor(float x);
 // Generic Conversion
 float ConvertScales(float, float, float, float, float);
 
-
-/*============================================================================
 	SHORTCUT NAMESPACE
 ============================================================================*/
 // KEEP THIS AT THE END OF THE FILE
