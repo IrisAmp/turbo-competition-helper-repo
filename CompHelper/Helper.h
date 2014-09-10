@@ -27,6 +27,8 @@
 #include <exception>
 #include <sstream>
 #include <math.h>
+#include <climits>
+#include <map>
 
 #define MATH_PI  3.1415926535897932384626433832795028841971693993751058
 #define MATH_E   2.7182818284590452353602874713526624977572470936999595
@@ -37,6 +39,23 @@ typedef std::vector<int> IntList_t;
 
 // every element in a collection
 #define for_e(elem,collection) for(auto &elem : collection)
+// debug output that lists the variable name
+#define debug(vari) std::cerr<<#vari<<"="<<(vari)<<std::endl;
+// for map, pair
+#define ii std::pair<int,int>
+#define mp std::make_pair
+#define fi first
+#define se second
+// for vectors :)
+#define vec std::vector
+#define pb push_back
+// this asshole thing for reasons
+#define cs c_str()
+
+// test a bit of a number, return true if set
+#define test_bit(num, bit) ((num & 1 << bit) != 0)
+
+
 
 // Function to parse a file as a series of std::strings.
 StringList_t parseFile(const char *fileName)
@@ -101,30 +120,6 @@ IntList_t * parseIntFile(const char *fileName, const char *delimiter)
 	return new IntList_t;
 }
 
-/*
-*	Converts an integer string into an integer
-*	This function will throw an exception if non-numerical characters
-*	are contained in the string.
-*/
-static int StringToInteger(std::string in)
-{
-	int output = 0;
-	for(int i = 0; i < in.size(); i++)
-	{
-		output *= 10;
-		if(in.at(i) >= '0' && in.at(i) <= '9')
-		{
-			output += (int)in.at(i) - '0';
-		}
-		else
-		{
-			throw new std::exception("Error in StringToInteger - non-numerical character found.");
-		}
-	}
-
-	return output;
-}
-
 void appendToOutput(std::string writeMe)
 {
 	// Open the file (in append mode)
@@ -159,6 +154,20 @@ static void StrReplace(std::string& str, const std::string& oldStr, const std::s
 	}
 }
 
+static void RemoveString(std::string& source, const std::string& chars) {
+   std::string result="";
+   for (unsigned int i=0; i<source.length(); i++) {
+      bool foundany=false;
+      for (unsigned int j=0; j<chars.length() && !foundany; j++) {
+         foundany=(source[i]==chars[j]);
+      }
+      if (!foundany) {
+         result+=source[i];
+      }
+   }
+   source = result;
+}
+
 /**
 *	Splits a string up into tokens with respect to the delimiter 
 **/
@@ -180,6 +189,10 @@ static std::vector<std::string> SplitString(const std::string &s, char delim)
 */
 static float NormalizeAngle(float angle)
 {
+	while(angle < 0)
+	{
+		angle += 2*MATH_PI;
+	}
 	return fmod(angle, 2*MATH_PI);
 }
 

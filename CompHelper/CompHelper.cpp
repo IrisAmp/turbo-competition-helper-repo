@@ -4,8 +4,7 @@
 #include "stdafx.h"
 #include "Helper.h"
 
-
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char* argv[])
 {
 	return 0;
 }
