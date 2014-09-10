@@ -29,6 +29,7 @@
 #include <math.h>
 #include <climits>
 #include <map>
+#include <algorithm>
 
 #define MATH_PI  3.1415926535897932384626433832795028841971693993751058
 #define MATH_E   2.7182818284590452353602874713526624977572470936999595
@@ -229,5 +230,26 @@ static bool StrCompare(std::string& str1, std::string& str2)
 {
 	return str1.size() == str2.size() && str1 == str2;
 }
+
+
+// custom comparator
+struct sort_pred 
+{
+	bool operator() (const std::pair<int,int> &left, const std::pair<int,int> &right)
+	{
+		return left.second < right.second;
+	}
+};
+
+// Angle conversion
+float rtodeg(float x)
+{
+	return x * 180/MATH_PI;
+}
+float degtor(float x)
+{
+	return x * MATH_PI/180;
+}
+
 
 #endif//__COMP_HELPER_H_DEFINED__
