@@ -282,5 +282,12 @@ void removeAllChar(std::string s, char c)
 	// s.erase shortens the string to its new proper value
 	s.erase(std::remove(s.begin(), s.end(), c), s.end());
 }
+void removeAllString(std::string s, std::string c)
+{
+	// std::remove deletes all c
+	// s.erase shortens the string to its new proper value
+	s.erase(std::remove(s.begin(), s.end(), c), s.end());
+}
+
 
 #endif//__COMP_HELPER_H_DEFINED__
