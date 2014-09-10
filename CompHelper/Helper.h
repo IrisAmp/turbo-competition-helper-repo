@@ -116,19 +116,6 @@ float degtor(float x);
 float ConvertScales(float, float, float, float, float);
 
 /*============================================================================
-	OTHER
-============================================================================*/
-// custom comparator
-struct sort_pred 
-{
-	bool operator() (const std::pair<int,int> &left, const std::pair<int,int> &right)
-	{
-		return left.second < right.second;
-	}
-};
-
-
-/*============================================================================
 	SHORTCUT NAMESPACE
 ============================================================================*/
 // KEEP THIS AT THE END OF THE FILE

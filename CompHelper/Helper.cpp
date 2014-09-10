@@ -213,7 +213,7 @@ bool IsBetween(float num, float a, float b)
 *	String comparison function that checks both size + characters
 *	does == do this anyway? we may never know
 */
-bool StrCompare(std::string& str1, std::string& str2)
+bool CompareString(std::string& str1, std::string& str2)
 {
 	return str1.size() == str2.size() && str1 == str2;
 }
@@ -244,13 +244,13 @@ void removeAllChar(std::string s, char c)
 {
 	// std::remove deletes all c
 	// s.erase shortens the string to its new proper value
-	s.erase(std::remove(s.begin(), s.end(), c), s.end());
+//	s.erase(std::remove(s.begin(), s.end(), c), s.end());
 }
 void removeAllString(std::string s, std::string c)
 {
 	// std::remove deletes all c
 	// s.erase shortens the string to its new proper value
-	s.erase(std::remove(s.begin(), s.end(), c), s.end());
+//	s.erase(std::remove(s.begin(), s.end(), c), s.end());
 }
 
 // Generic Conversion
