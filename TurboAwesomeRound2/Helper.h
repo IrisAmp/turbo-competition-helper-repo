@@ -48,10 +48,6 @@ typedef std::vector<int> IntList_t;
 // debug output that lists the variable name
 #define debug(vari) std::cerr<<#vari<<"="<<(vari)<<std::endl;
 // for map, pair
-#define ii std::pair<int,int>
-#define iii std::tuple<int,int,int>
-#define ss std::pair<std::string,std::string>
-#define sss std::tuple<std::string,std::string,std::string>
 #define mp std::make_pair
 #define mt std::make_tuple
 #define fi first
@@ -59,8 +55,6 @@ typedef std::vector<int> IntList_t;
 // for vectors :)
 #define vec std::vector
 #define pb push_back
-// this asshole thing for reasons
-#define cs c_str()
 
 // test a bit of a number, return true if set
 #define test_bit(num, bit) ((num & 1 << bit) != 0)
@@ -87,30 +81,8 @@ float normalizeAngle(float angle);
 float lerp(float, float, float);
 bool IsBetween(float num, float a, float b);
 float rtodeg(float radians);
-float deftor(float degrees);
+float degtor(float degrees);
 float convertScales(float, float, float, float, float);
 
-/*============================================================================
-	SHORTCUT NAMESPACE
-============================================================================*/
-namespace help
-{
-	namespace c // Containers
-	{
-
-	}
-	namespace s // String
-	{
-
-	}
-	namespace f // File
-	{
-
-	}
-	namespace m // Math
-	{
-
-	}
-}
 
 #endif//__TURBO_HELPER_H_DEFINED__
