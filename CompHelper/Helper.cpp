@@ -238,7 +238,6 @@ float degtor(float x)
 	return x * MATH_PI/180;
 }
 
-
 // Remove all of one character from a string
 void removeAllChar(std::string s, char c)
 {

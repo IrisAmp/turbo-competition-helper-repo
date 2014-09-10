@@ -82,7 +82,6 @@ void appendStringListToOutput(StringList_t lines, std::string fileName);
 ============================================================================*/
 //	Find a string in a string and replace it with another string
 void ReplaceString(std::string& str, const std::string& oldStr, const std::string& newStr);
-auto StrReplace = ReplaceString; // Legacy. Remove when no longer used.
 void RemoveString(std::string& source, const std::string& chars);
 
 //	Splits a string up into tokens with respect to the delimiter 
@@ -90,7 +89,6 @@ std::vector<std::string> SplitString(const std::string &s, char delim);
 
 //	String comparison function that checks both size + characters
 bool CompareString(std::string& str1, std::string& str2);
-auto StrCompare = CompareString;
 
 // Remove all of one character from a string
 void removeAllChar(std::string s, char c);
@@ -114,18 +112,6 @@ float degtor(float x);
 
 // Generic Conversion
 float ConvertScales(float, float, float, float, float);
-
-/*============================================================================
-	OTHER
-============================================================================*/
-// custom comparator
-struct sort_pred 
-{
-	bool operator() (const std::pair<int,int> &left, const std::pair<int,int> &right)
-	{
-		return left.second < right.second;
-	}
-};
 
 
 /*============================================================================
@@ -152,7 +138,7 @@ namespace help
 		// Split String by Delimiter
 		auto sp = SplitString;
 		// Compare two strings
-		auto cm = StrCompare;
+		auto cm = CompareString;
 	}
 	namespace f // File
 	{
