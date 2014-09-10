@@ -44,7 +44,11 @@ typedef std::vector<int> IntList_t;
 #define debug(vari) std::cerr<<#vari<<"="<<(vari)<<std::endl;
 // for map, pair
 #define ii std::pair<int,int>
+#define iii std::tuple<int,int,int>
+#define ss std::pair<std::string,std::string>
+#define sss std::tuple<std::string,std::string,std::string>
 #define mp std::make_pair
+#define mt std::make_tuple
 #define fi first
 #define se second
 // for vectors :)
@@ -189,6 +193,7 @@ static void RemoveString(std::string& source, const std::string& chars) {
          result+=source[i];
       }
    }
+
    source = result;
 }
 
@@ -198,10 +203,10 @@ static void RemoveString(std::string& source, const std::string& chars) {
 static std::vector<std::string> SplitString(const std::string &s, char delim) 
 {
 	StringList_t elems;
-	std::stringstream ss(s);
+	std::stringstream strs(s);
 	std::string item;
 
-	while (std::getline(ss, item, delim)) {
+	while (std::getline(strs, item, delim)) {
 		elems.push_back(item);
 	}
 
