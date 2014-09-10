@@ -74,22 +74,22 @@ StringList_t parseFile(std::string fileName);
 IntList_t * parseIntFile(const char *fileName, const char *delimiter);
 
 // Functions to write to output file
-void appendToOutput(std::string writeMe);
-void appendStringListToOutput(StringList_t lines);
+void appendToOutput(std::string writeMe, std::string fileName);
+void appendStringListToOutput(StringList_t lines, std::string fileName);
 
 /*============================================================================
 	STRING MANIPULATION
 ============================================================================*/
 //	Find a string in a string and replace it with another string
-static void ReplaceString(std::string& str, const std::string& oldStr, const std::string& newStr);
+void ReplaceString(std::string& str, const std::string& oldStr, const std::string& newStr);
 auto StrReplace = ReplaceString; // Legacy. Remove when no longer used.
-static void RemoveString(std::string& source, const std::string& chars);
+void RemoveString(std::string& source, const std::string& chars);
 
 //	Splits a string up into tokens with respect to the delimiter 
-static std::vector<std::string> SplitString(const std::string &s, char delim);
+std::vector<std::string> SplitString(const std::string &s, char delim);
 
 //	String comparison function that checks both size + characters
-static bool CompareString(std::string& str1, std::string& str2);
+bool CompareString(std::string& str1, std::string& str2);
 auto StrCompare = CompareString;
 
 // Remove all of one character from a string
@@ -100,17 +100,20 @@ void removeAllString(std::string s, std::string c);
 	MATH
 ============================================================================*/
 //	Normalize angle between 0 and 2PI
-static float NormalizeAngle(float angle);
+float NormalizeAngle(float angle);
 
 //	Classic linear interpolation
-static float Lerp(float from, float to, float amount);
+float Lerp(float from, float to, float amount);
 
 //	Determine if a number lies within a range
-static bool IsBetween(float num, float a, float b);
+bool IsBetween(float num, float a, float b);
 
 // Angle conversion
 float rtodeg(float x);
 float degtor(float x);
+
+// Generic Conversion
+float ConvertScales(float, float, float, float, float);
 
 /*============================================================================
 	OTHER
@@ -133,24 +136,37 @@ namespace help
 {
 	namespace c // Containers
 	{
-		using sl = StringList_t;
-		using il = IntList_t;
+		// String Vector
+		typedef StringList_t sl;
+		// Int Vector
+		typedef IntList_t il;
+		// String
+		typedef std::string s;
 	}
 	namespace s // String
 	{
+		// Remove Substring from String
 		auto rm = RemoveString;
+		// Replace Substring with String
 		auto rp = ReplaceString;
+		// Split String by Delimiter
 		auto sp = SplitString;
+		// Compare two strings
 		auto cm = StrCompare;
 	}
 	namespace f // File
 	{
+		// Read in file
 		auto r  = static_cast<StringList_t(*)
 			(const char*)>(parseFile);
+		// Read in file
 		auto r2 = static_cast<StringList_t(*)
 			(std::string)>(parseFile);
+		// Read in file of ints
 		auto ri = parseIntFile;
+		// Write to file
 		auto w  = appendToOutput;
+		// Write to file
 		auto wl = appendStringListToOutput;
 	}
 	namespace m // Math
@@ -160,6 +176,7 @@ namespace help
 		auto ib = IsBetween;
 		auto rd = rtodeg;
 		auto dr = degtor;
+		auto cv = ConvertScales;
 	}	
 }
 // DON'T PUT NEW CODE HERE.

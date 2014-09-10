@@ -15,7 +15,6 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "stdafx.h"
 #include "Helper.h"
 
 // Function to parse a file as a series of std::strings.
@@ -72,7 +71,11 @@ IntList_t * parseIntFile(const char *fileName, const char *delimiter)
 		lines.push_back(line);
 	}
 	
-	// TODO: IMPLEMENT THE REST OF THE PARSER
+	// For each line in the file.
+	for (std::string line : lines)
+	{
+		// Split it into a list of strings.
+	}
 
 	// Cleanup
 	inFile.close();
@@ -81,11 +84,11 @@ IntList_t * parseIntFile(const char *fileName, const char *delimiter)
 	return new IntList_t;
 }
 
-void appendToOutput(std::string writeMe)
+void appendToOutput(std::string writeMe, std::string fileName = "Output.txt")
 {
 	// Open the file (in append mode)
 	std::ofstream outFile;
-	outFile.open("Output.txt", std::ios::out || std::ios::app);
+	outFile.open(fileName, std::ios::out || std::ios::app);
 
 	// Break operation if there is an FIO err.
 	if(!outFile.is_open())
@@ -99,11 +102,11 @@ void appendToOutput(std::string writeMe)
 	outFile.close();
 }
 
-void appendStringListToOutput(StringList_t lines)
+void appendStringListToOutput(StringList_t lines, std::string fileName = "Output.txt")
 {
 	// Open the file (in append mode)
 	std::ofstream outFile;
-	outFile.open("Output.txt", std::ios::out || std::ios::app);
+	outFile.open(fileName, std::ios::out || std::ios::app);
 
 	// Break operation if there is an FIO err.
 	if(!outFile.is_open())
@@ -124,7 +127,7 @@ void appendStringListToOutput(StringList_t lines)
 /**
 *	Find a string in a string and replace it with another string
 */
-static void ReplaceString(std::string& str, const std::string& oldStr, const std::string& newStr)
+void ReplaceString(std::string& str, const std::string& oldStr, const std::string& newStr)
 {
 	if (str.size() == 0 || oldStr.size() == 0)
 	{
@@ -138,7 +141,7 @@ static void ReplaceString(std::string& str, const std::string& oldStr, const std
 	}
 }
 
-static void RemoveString(std::string& source, const std::string& chars) {
+void RemoveString(std::string& source, const std::string& chars) {
    std::string result="";
    for (unsigned int i=0; i<source.length(); i++) {
       bool foundany=false;
@@ -156,7 +159,7 @@ static void RemoveString(std::string& source, const std::string& chars) {
 /**
 *	Splits a string up into tokens with respect to the delimiter 
 **/
-static std::vector<std::string> SplitString(const std::string &s, char delim) 
+std::vector<std::string> SplitString(const std::string &s, char delim) 
 {
 	StringList_t elems;
 	std::stringstream strs(s);
@@ -172,7 +175,7 @@ static std::vector<std::string> SplitString(const std::string &s, char delim)
 /* 
 *	Normalize angle between 0 and 2PI
 */
-static float NormalizeAngle(float angle)
+float NormalizeAngle(float angle)
 {
 	while(angle < 0)
 	{
@@ -184,7 +187,7 @@ static float NormalizeAngle(float angle)
 /*
 *	Classic linear interpolation
 */
-static float Lerp(float from, float to, float amount)
+float Lerp(float from, float to, float amount)
 {
 	return ( from + amount * (to - from) );
 }
@@ -192,7 +195,7 @@ static float Lerp(float from, float to, float amount)
 /*
 *	Determine if a number lies within a range
 */
-static bool IsBetween(float num, float a, float b)
+bool IsBetween(float num, float a, float b)
 {
 	if( a < num && num < b )
 	{
@@ -210,7 +213,7 @@ static bool IsBetween(float num, float a, float b)
 *	String comparison function that checks both size + characters
 *	does == do this anyway? we may never know
 */
-static bool StrCompare(std::string& str1, std::string& str2)
+bool StrCompare(std::string& str1, std::string& str2)
 {
 	return str1.size() == str2.size() && str1 == str2;
 }
@@ -248,4 +251,10 @@ void removeAllString(std::string s, std::string c)
 	// std::remove deletes all c
 	// s.erase shortens the string to its new proper value
 	s.erase(std::remove(s.begin(), s.end(), c), s.end());
+}
+
+// Generic Conversion
+float ConvertScales(float x_min, float x_max, float y_min, float y_max, float target)
+{
+		return ((target - x_min) / (x_max - x_min)) * (y_max - y_min);
 }
