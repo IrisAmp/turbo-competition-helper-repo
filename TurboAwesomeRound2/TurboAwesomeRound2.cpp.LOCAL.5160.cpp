@@ -21,9 +21,6 @@
 #define IFN "SampleInput.txt"
 #define OFN "Output.txt"
 
-// Problem Solution Files:
-#include "TextQueryProblem.h"
-
 /*============================================================================
 	SHORTCUT NAMESPACE
 ============================================================================*/
@@ -52,9 +49,7 @@ namespace help
 	namespace s // String
 	{
 		auto rm = removeAllChar;
-		auto rs = removeString;
 		auto sp = splitString;
-		auto tu = toUpper;
 	}
 	namespace m // Math
 	{
@@ -70,7 +65,7 @@ namespace help
 
 int main(int argc, char* argv[])
 {
-//	printf("Hello World!\n");
+	printf("Hello World!\n");
 
 	SudokuPuzzle p("SampleInput.txt");
 	p.print();

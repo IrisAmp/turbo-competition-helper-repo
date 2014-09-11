@@ -75,7 +75,24 @@ int main(int argc, char* argv[])
 	SudokuPuzzle p("SampleInput.txt");
 	p.print();
 
+<<<<<<< HEAD
 	p.solve();
+=======
+	c::sl x;
+
+	try{x = f::r(IFN);}
+	catch(...){
+		printf("An error occured when oppening %s", IFN);
+//		return 1;
+	}
+
+	for(c::s y : x)
+	{
+		// Do something
+	}
+	
+	SolveQueryProblem("SampleInput.txt", "fileout.txt");
+>>>>>>> origin/master
 
 	p.print();
 	return 0;

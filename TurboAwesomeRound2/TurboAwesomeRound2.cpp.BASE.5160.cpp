@@ -16,13 +16,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "Helper.h"
-#include "Sudoku.h"
 
 #define IFN "SampleInput.txt"
 #define OFN "Output.txt"
-
-// Problem Solution Files:
-#include "TextQueryProblem.h"
 
 /*============================================================================
 	SHORTCUT NAMESPACE
@@ -52,9 +48,7 @@ namespace help
 	namespace s // String
 	{
 		auto rm = removeAllChar;
-		auto rs = removeString;
 		auto sp = splitString;
-		auto tu = toUpper;
 	}
 	namespace m // Math
 	{
@@ -70,13 +64,22 @@ namespace help
 
 int main(int argc, char* argv[])
 {
-//	printf("Hello World!\n");
+	printf("Hello World!\n");
 
-	SudokuPuzzle p("SampleInput.txt");
-	p.print();
+	using namespace help;
 
-	p.solve();
+	c::sl x;
 
-	p.print();
+	try{x = f::r(IFN);}
+	catch(...){
+		printf("An error occured when oppening %s", IFN);
+		return 1;
+	}
+
+	for(c::s y : x)
+	{
+		// Do something
+	}
+
 	return 0;
 }
