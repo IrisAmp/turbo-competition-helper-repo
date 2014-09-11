@@ -81,14 +81,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\%40SOFTWARE\GitHub\turbo-competition-helper-repo\TurboAwesomeRound2\Sudoku.cpp" />
     <ClCompile Include="Helper.cpp" />
     <ClCompile Include="TextQueryProblem.cpp" />
-    <ClCompile Include="Helper.cpp" />
-    <ClCompile Include="TextQueryProblem.cpp" />
-    <ClCompile Include="Sudoku.cpp" />
     <ClCompile Include="TurboAwesomeRound2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\%40SOFTWARE\GitHub\turbo-competition-helper-repo\TurboAwesomeRound2\Sudoku.h" />
     <ClInclude Include="Helper.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="TextQueryProblem.h" />

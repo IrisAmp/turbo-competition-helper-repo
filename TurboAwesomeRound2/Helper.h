@@ -32,7 +32,6 @@
 #include <climits>
 #include <map>
 #include <algorithm>
-#include <stdint.h>
 
 /*============================================================================
 	DEFINE, TYPEDEF, MACROS, AUTOS
@@ -43,7 +42,6 @@
 
 typedef std::vector<std::string> StringList_t;
 typedef std::vector<int> IntList_t;
-typedef std::vector<IntList_t> IntListList_t;
 
 // every element in a collection
 #define for_e(elem,collection) for(auto &elem : collection)
@@ -68,7 +66,7 @@ typedef std::vector<IntList_t> IntListList_t;
 /*----------------------------------------------------------------------------
 		FILE IO                                                             */
 StringList_t parseFile(std::string fileName);
-IntListList_t parseIntFile(std::string fileName, char delimiter);
+IntList_t parseIntFile(std::string fileName, std::string delimiter);
 
 void appendToOutput(std::string writeMe, std::string fileName);
 void appendStringListToOutput(StringList_t writeMe, std::string fileName);
@@ -88,6 +86,5 @@ bool IsBetween(float num, float a, float b);
 float rtodeg(float radians);
 float degtor(float degrees);
 float convertScales(float, float, float, float, float);
-bool isPow2(uint16_t);
 
 #endif//__TURBO_HELPER_H_DEFINED__

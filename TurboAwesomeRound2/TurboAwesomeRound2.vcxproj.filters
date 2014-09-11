@@ -15,9 +15,6 @@
     <Filter Include="Source Files\Solutions">
       <UniqueIdentifier>{07e3649f-4be2-414c-9815-9b13689bea07}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Solvers">
-      <UniqueIdentifier>{2d894727-9eec-4301-a5d3-86ee5df96562}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -32,8 +29,8 @@
     <ClCompile Include="TextQueryProblem.cpp">
       <Filter>Source Files\Solutions</Filter>
     </ClCompile>
-    <ClCompile Include="Sudoku.cpp">
-      <Filter>Source Files\Solvers</Filter>
+    <ClCompile Include="..\..\..\..\%40SOFTWARE\GitHub\turbo-competition-helper-repo\TurboAwesomeRound2\Sudoku.cpp">
+      <Filter>Source Files\Solutions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -43,8 +40,9 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="TextQueryProblem.h">
       <Filter>Source Files\Solutions</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\%40SOFTWARE\GitHub\turbo-competition-helper-repo\TurboAwesomeRound2\Sudoku.h">
-      <Filter>Source Files\Solvers</Filter>
+      <Filter>Source Files\Solutions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
