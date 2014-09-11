@@ -32,6 +32,7 @@
 #include <climits>
 #include <map>
 #include <algorithm>
+#include <stdint.h>
 
 /*============================================================================
 	DEFINE, TYPEDEF, MACROS, AUTOS

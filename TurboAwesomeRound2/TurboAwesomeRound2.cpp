@@ -15,57 +15,13 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "Helper.h"
+#include "HelperNameHack.h"
 
 #define IFN "SampleInput.txt"
 #define OFN "Output.txt"
 
 // Problem Solution Files:
 #include "TextQueryProblem.h"
-
-/*============================================================================
-	SHORTCUT NAMESPACE
-============================================================================*/
-#ifdef __TURBO_HELPER_H_DEFINED__
-namespace help
-{
-	namespace c // Containers
-	{
-		typedef std::string					s;
-		typedef StringList_t				sl;
-		typedef IntList_t					il;
-		typedef std::pair<int, int>			ii;
-		typedef std::tuple<int, int, int>	iii;
-		typedef std::pair<std::string,
-			std::string>					ss;
-		typedef std::tuple<std::string,
-			std::string, std::string>		sss;
-	}
-	namespace f // File
-	{
-		auto r  = parseFile;
-		auto ri = parseIntFile;
-		auto w  = appendToOutput;
-		auto wl = appendStringListToOutput;
-	}
-	namespace s // String
-	{
-		auto rm = removeAllChar;
-		auto rs = removeString;
-		auto sp = splitString;
-		auto tu = toUpper;
-	}
-	namespace m // Math
-	{
-		auto na = normalizeAngle;
-		auto li = lerp;
-		auto ib = IsBetween;
-		auto rd = rtodeg;
-		auto dr = degtor;
-		auto cs = convertScales;
-	}
-}
-#endif//__TURBO_HELPER_H_DEFINED__
 
 int main(int argc, char* argv[])
 {
