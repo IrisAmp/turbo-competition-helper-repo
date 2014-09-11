@@ -48,7 +48,7 @@ StringList_t parseFile(std::string fileName)
 	// Return the result.
 	return result;
 }
-IntList_t parseIntFile(std::string fileName, std::string delimiter)
+IntListList_t parseIntFile(std::string fileName, char delimiter)
 {
 	// Open the file
 	std::ifstream inFile;
@@ -61,7 +61,7 @@ IntList_t parseIntFile(std::string fileName, std::string delimiter)
 	// Allocate memory
 	std::string line;
 	StringList_t lines;
-	IntList_t result;
+	IntListList_t result;
 
 	// Read the entire file.
 	while(std::getline(inFile, line))
@@ -72,7 +72,14 @@ IntList_t parseIntFile(std::string fileName, std::string delimiter)
 	// For each line in the file.
 	for (std::string line : lines)
 	{
-		// Split it into a list of strings.
+		StringList_t nums = splitString(line, delimiter);
+		IntList_t numericline;
+		for (std::string num : nums)
+		{
+			numericline.push_back(
+				atoi(num.c_str()));
+		}
+		result.push_back(numericline);
 	}
 
 	// Cleanup
@@ -183,4 +190,8 @@ float degtor(float degrees)
 float convertScales(float x_min, float x_max, float y_min, float y_max, float target)
 {
 		return ((target - x_min) / (x_max - x_min)) * (y_max - y_min);
+}
+bool isPow2(uint16_t x)
+{
+	return (x != 0) && (x & (x - 1));
 }

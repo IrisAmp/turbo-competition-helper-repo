@@ -82,10 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\%40SOFTWARE\GitHub\turbo-competition-helper-repo\TurboAwesomeRound2\Helper.cpp" />
+    <ClCompile Include="Sudoku.cpp" />
     <ClCompile Include="TurboAwesomeRound2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\%40SOFTWARE\GitHub\turbo-competition-helper-repo\TurboAwesomeRound2\Helper.h" />
+    <ClInclude Include="..\..\..\..\%40SOFTWARE\GitHub\turbo-competition-helper-repo\TurboAwesomeRound2\Sudoku.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

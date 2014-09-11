@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "Helper.h"
+#include "Sudoku.h"
 
 #define IFN "SampleInput.txt"
 #define OFN "Output.txt"
@@ -66,20 +67,11 @@ int main(int argc, char* argv[])
 {
 	printf("Hello World!\n");
 
-	using namespace help;
+	SudokuPuzzle p("SampleInput.txt");
+	p.print();
 
-	c::sl x;
+	p.solve();
 
-	try{x = f::r(IFN);}
-	catch(...){
-		printf("An error occured when oppening %s", IFN);
-		return 1;
-	}
-
-	for(c::s y : x)
-	{
-		// Do something
-	}
-
+	p.print();
 	return 0;
 }
