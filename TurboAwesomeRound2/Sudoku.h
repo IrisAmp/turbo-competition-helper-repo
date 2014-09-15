@@ -34,7 +34,13 @@ public:
 				throw;}
 		
 		try{this -> convertToInts(raw, unknownToken);}
-			catch(...){printf("Couldn't convert string values to ints (bad token for unknown).%s\n", fileName);
+			catch(...){printf("Couldn't convert string values to ints (bad token for unknown).\n");
+				throw;}
+	}
+	SudokuPuzzle(StringList_t raw, char unknownToken)
+	{
+		try{this -> convertToInts(raw, unknownToken);}
+			catch(...){printf("Couldn't convert string values to ints (bad token for unknown).\n");
 				throw;}
 	}
 

@@ -22,25 +22,17 @@
 
 // Problem Solution Files:
 #include "TextQueryProblem.h"
+#include "Sudoku.h"
 
 int main(int argc, char* argv[])
 {
 	using namespace help;
 
-	c::sl x;
+	SudokuPuzzle puz(IFN, 'x');
 
-	try{x = f::r(IFN);}
-	catch(...){
-		printf("An error occured when oppening %s", IFN);
-//		return 1;
-	}
-
-	for(c::s y : x)
-	{
-		// Do something
-	}
-	
-	SolveQueryProblem("SampleInput.txt", "fileout.txt");
+	puz.print();
+	puz.solve();
+	puz.print();
 
 	return 0;
 }

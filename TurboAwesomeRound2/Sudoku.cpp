@@ -60,34 +60,41 @@ bool SudokuPuzzle::solve()
 		{
 			if (Puzzle[i][j] == 0)
 			{
-				printf("Finding solutions for %i, %i\n", i, j);
-				IntList_t solns = findValidSolutions(i, j);
-				if (solns.size() < 1)
-				{
-					printf("The puzzle is unsolvable!\n");
-					return false;
-				}
-				if (solns.size() < 2)
-				{
-					Puzzle[i][j] = solns[0];
-					mod = true;
-					printf("    Wrote solution: %i\n", solns[0]);
-				}
+				#ifdef DEBUG
+				printf("\nFinding solutions for %i, %i\n", i, j);
+				#endif
 
+				IntList_t solns = findValidSolutions(i, j);
+				
+				#ifdef DEBUG
 				printf("    Possible solutions are ");
 				for (int x : solns)
 				{
 					printf("%i ", x);
 				}
 				printf("\n");
+				#endif
+
+				if (solns.size() < 1)
+				{
+					#ifdef DEBUG
+					printf("The puzzle is unsolvable!\n");
+					#endif
+					return false;
+				}
+				if (solns.size() < 2)
+				{
+					Puzzle[i][j] = solns[0];
+					mod = true;
+					#ifdef DEBUG
+					printf("    Wrote solution: %i\n", solns[0]);
+					#endif
+				}
 			}
 			j++;
 		}
 		i++;
 	}
-
-	this -> print();
-	getc(stdin);
 
 	if (mod) return solve();
 	else     return guess(i, j);
@@ -140,9 +147,16 @@ IntList_t SudokuPuzzle::findValidSolutions(unsigned x, unsigned y)
 }
 bool SudokuPuzzle::guess(unsigned x, unsigned y)
 {
+	#ifdef DEBUG
+	printf("\nMaking a guess in space (%i, %i)\n", x, y);
+	#endif
+
 	std::copy(&Puzzle[0][0], &Puzzle[0][0] + (9*9), &SafePuzzle[0][0]);
 	for (int i: findValidSolutions(x, y))
 	{	
+		#ifdef DEBUG
+		printf("    Trying value: %i\n", i);
+		#endif
 		// Write the guess into the space.
 		Puzzle[x][y] = i;
 
@@ -156,6 +170,7 @@ bool SudokuPuzzle::guess(unsigned x, unsigned y)
 }
 void SudokuPuzzle::print()
 {
+	printf("\n\n");
 	for (int i = 0; i < 9; i++)
 	{
 		for (int j = 0; j < 9; j++)
