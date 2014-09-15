@@ -36,12 +36,12 @@ void SudokuPuzzle::convertToInts(StringList_t lines, char token)
 			if (num == s)
 			{
 				this -> Puzzle[i][j] = 0;
-				this -> PuzzleWorkspace[i][j] = 0;
+				this -> SafePuzzle[i][j] = 0;
 			}
 			else
 			{
 				this -> Puzzle[i][j] = atoi(num.c_str());
-				this -> PuzzleWorkspace[i][j] = atoi(num.c_str());
+				this -> SafePuzzle[i][j] = atoi(num.c_str());
 			}
 			j++;
 		}
@@ -69,7 +69,7 @@ bool SudokuPuzzle::solve()
 				}
 				if (solns.size() < 2)
 				{
-					Puzzle[i][j] = solns[0]; 
+					Puzzle[i][j] = solns[0];
 					mod = true;
 					printf("    Wrote solution: %i\n", solns[0]);
 				}
@@ -90,6 +90,7 @@ bool SudokuPuzzle::solve()
 	getc(stdin);
 
 	if (mod) return solve();
+	else     return guess(i, j);
 
 	return false;
 }
@@ -136,6 +137,22 @@ IntList_t SudokuPuzzle::findValidSolutions(unsigned x, unsigned y)
 		i++; invalid = invalid >> 1;
 	}
 	return result;
+}
+bool SudokuPuzzle::guess(unsigned x, unsigned y)
+{
+	std::copy(&Puzzle[0][0], &Puzzle[0][0] + (9*9), &SafePuzzle[0][0]);
+	for (int i: findValidSolutions(x, y))
+	{	
+		// Write the guess into the space.
+		Puzzle[x][y] = i;
+
+		// Try to solve the guess.
+		if (solve()) return true;
+
+		// Roll back if incorrect.
+		else std::copy(&SafePuzzle[0][0], &SafePuzzle[0][0] + (9*9), &Puzzle[0][0]);
+	}
+	return false;
 }
 void SudokuPuzzle::print()
 {

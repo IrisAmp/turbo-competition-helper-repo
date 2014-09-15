@@ -25,8 +25,6 @@
 
 int main(int argc, char* argv[])
 {
-//	printf("Hello World!\n");
-
 	using namespace help;
 
 	c::sl x;

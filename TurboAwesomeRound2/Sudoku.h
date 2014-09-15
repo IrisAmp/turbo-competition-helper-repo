@@ -44,13 +44,18 @@ public:
 	~SudokuPuzzle();
 
 private:
+	static const int ht = 9;
+	static const int wd = 9;
+
 	SudokuPuzzle();
-	int Puzzle[9][9];
-	int PuzzleWorkspace[9][9];
+	int Puzzle[ht][wd];
+	int SafePuzzle[ht][wd];
 
 	void convertToInts(StringList_t, char);
 
 	IntList_t findValidSolutions(unsigned x, unsigned y);
+
+	bool guess(unsigned x, unsigned y);
 };
 
 
