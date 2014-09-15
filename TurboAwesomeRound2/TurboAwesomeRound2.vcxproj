@@ -90,6 +90,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\..\%40SOFTWARE\GitHub\turbo-competition-helper-repo\TurboAwesomeRound2\HelperNameHack.h" />
     <ClInclude Include="..\..\..\..\%40SOFTWARE\GitHub\turbo-competition-helper-repo\TurboAwesomeRound2\Sudoku.h" />
+    <ClInclude Include="..\..\..\..\%40SOFTWARE\GitHub\turbo-competition-helper-repo\TurboAwesomeRound2\TurboDebug.h" />
     <ClInclude Include="Helper.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="TextQueryProblem.h" />

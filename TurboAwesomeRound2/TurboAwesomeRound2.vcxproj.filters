@@ -47,6 +47,9 @@
     <ClInclude Include="..\..\..\..\%40SOFTWARE\GitHub\turbo-competition-helper-repo\TurboAwesomeRound2\HelperNameHack.h">
       <Filter>Source Files\Helper</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\%40SOFTWARE\GitHub\turbo-competition-helper-repo\TurboAwesomeRound2\TurboDebug.h">
+      <Filter>Source Files\Helper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TurboAwesomeRound2.rc">
