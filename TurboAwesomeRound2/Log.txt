@@ -1,0 +1,15 @@
+[Mon Sep 15 12:36:26 2014]: 
+TurboDebugHelper instantiated.
+
+[Mon Sep 15 12:36:26 2014]: Program started.
+[Mon Sep 15 12:36:26 2014]: 
+TurboDebugHelper instantiated.
+
+[Mon Sep 15 12:36:26 2014]: Program ended.
+[Mon Sep 15 12:36:41 2014]: TurboDebugHelper instantiated.
+[Mon Sep 15 12:36:41 2014]: Program started.
+[Mon Sep 15 12:36:41 2014]: TurboDebugHelper instantiated.
+[Mon Sep 15 12:36:41 2014]: Program ended.
+[Mon Sep 15 12:37:10 2014]: TurboDebugHelper instantiated.
+[Mon Sep 15 12:37:10 2014]: Program started.
+[Mon Sep 15 12:37:10 2014]: Program ended.

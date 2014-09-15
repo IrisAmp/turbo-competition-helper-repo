@@ -34,7 +34,7 @@ void SolveQueryProblem(string filei, string file)
 		}
 		i++;
 	}
-	for(int i = 0; i < body.size(); i++)
+	for(unsigned i = 0; i < body.size(); i++)
 	{
 		if( i == 5 )
 			int testmotherfucker = 5;
@@ -68,7 +68,7 @@ void SolveQueryProblem(string filei, string file)
 		{
 			for_e(word, bodytext)
 			{
-				for (int z = 0; z < word.size(); z++)
+				for (unsigned z = 0; z < word.size(); z++)
 				{
 					removeString(testme,word);
 					word.pop_back();

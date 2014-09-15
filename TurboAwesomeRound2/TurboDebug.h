@@ -19,7 +19,10 @@
 #define __TURBO_DEBUG_H_DEFINED__
 
 #define DEBUG
-#define DEBUGLEVEL
+#define DEBUGLEVEL 0
+
+#include <fstream>
+#include <time.h>
 
 class TurboDebugHelper
 {
@@ -29,10 +32,61 @@ class TurboDebugHelper
             static TurboDebugHelper instance;
             return instance;
         }
+
+		void writeToLog(const char *msg, unsigned level = 0)
+		{
+			#ifdef DEBUG
+			if (level >= DEBUGLEVEL)
+			{
+				time(&rawtime);
+				ctime_s(tbuff, 27, &rawtime);
+				tbuff[24] = '\0';
+				this -> logFile << "[" << tbuff << "]: " << msg << "\n";
+			}
+			#endif
+		}
+		void writeToConsole(const char *msg, unsigned level = 0)
+		{
+			#ifdef DEBUG
+			if (level >= DEBUGLEVEL)
+			{
+				time(&rawtime);
+				ctime_s(tbuff, 27, &rawtime);
+				tbuff[24] = '\0';
+				printf("[%s]: %s\n", tbuff, msg);
+			}
+			#endif
+		}
+		void writeToBoth(const char *msg, unsigned level = 0)
+		{
+			#ifdef DEBUG
+			this -> writeToConsole(msg, level);
+			this -> writeToLog(msg, level);
+			#endif
+		}
+		void clean()
+		{
+			logFile.close();
+			logFile.open("Log.txt", std::ios::out | std::ios::trunc);
+		}
+
     private:
-        TurboDebugHelper(){};
+        TurboDebugHelper()
+		{
+			logFile.open("Log.txt", std::ios::out | std::ios::app);
+			if (!logFile.is_open()) throw new std::exception("Couldn't open the logfile!");
+			writeToBoth("TurboDebugHelper instantiated.", 0);
+		}
+		~TurboDebugHelper()
+		{
+			logFile.close();
+		}
         TurboDebugHelper(TurboDebugHelper const&); // Don't Implement
         void operator=(TurboDebugHelper const&);   // Don't implement
+
+		std::ofstream logFile;
+		time_t rawtime;
+		char tbuff[27];
 };
 
 #endif//__TURBO_DEBUG_H_DEFINED__

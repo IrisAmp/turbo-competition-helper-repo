@@ -61,6 +61,25 @@ namespace help
 		auto dr = degtor;
 		auto cs = convertScales;
 	}
+	namespace log // Debug log
+	{
+		void c(const char *msg, int level = 0)
+		{
+			TurboDebugHelper::getInstance().writeToConsole(msg, level);
+		}
+		void l(const char *msg, int level = 0)
+		{
+			TurboDebugHelper::getInstance().writeToLog(msg, level);
+		}
+		void b(const char *msg, int level = 0)
+		{
+			TurboDebugHelper::getInstance().writeToBoth(msg, level);
+		}
+		void rm()
+		{
+			TurboDebugHelper::getInstance().clean();
+		}
+	}
 }
 #endif//__TURBO_HELPER_H_DEFINED__
 
