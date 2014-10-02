@@ -22,17 +22,19 @@
 	INCLUDES
 ============================================================================*/
 #include <stdlib.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdarg.h>
+
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <vector>
 #include <string>
 #include <exception>
-#include <sstream>
-#include <math.h>
 #include <climits>
 #include <map>
 #include <algorithm>
-#include <stdint.h>
 
 #include "TurboDebug.h"
 
@@ -80,6 +82,8 @@ std::string removeAllChar(std::string &inString, char removeMe);
 StringList_t splitString(const std::string inString, char delimiter);
 std::string toUpper(std::string &inString);
 std::string removeString(std::string &inString, std::string removeMe);
+std::string formatString(const char *fmt, ...);
+std::string vaformat(const char *fmt, va_list ap);
 
 /*----------------------------------------------------------------------------
 		MATH                                                                */

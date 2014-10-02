@@ -27,10 +27,14 @@
 int main(int argc, char* argv[])
 {
 	using namespace help;
+	log::rm();
 	log::b("Program started.");
 	
+	SudokuPuzzle puz(IFN);
 
+	puz.print();
+	puz.solve();
 
-	log::b("Program ended.");
+	log::b("Program ended.\n///////////////////////////////////////////////////////////////////////////////\n");
 	return 0;
 }

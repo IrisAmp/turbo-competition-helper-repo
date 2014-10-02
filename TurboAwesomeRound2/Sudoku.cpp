@@ -60,12 +60,13 @@ bool SudokuPuzzle::solve()
 		{
 			if (Puzzle[i][j] == 0)
 			{
-				#ifdef DEBUG
-				printf("\nFinding solutions for %i, %i\n", i, j);
-				#endif
+				TurboDebugHelper::getInstance()
+					.writeToBoth(
+						formatString("Finding solutions for %i, %i", i, j)
+							.c_str());
 
 				IntList_t solns = findValidSolutions(i, j);
-				
+
 				#ifdef DEBUG
 				printf("    Possible solutions are ");
 				for (int x : solns)
@@ -77,18 +78,20 @@ bool SudokuPuzzle::solve()
 
 				if (solns.size() < 1)
 				{
-					#ifdef DEBUG
-					printf("The puzzle is unsolvable!\n");
-					#endif
+					TurboDebugHelper::getInstance()
+						.writeToBoth(
+							"The puzzle is unsolvable!"
+								);
 					return false;
 				}
 				if (solns.size() < 2)
 				{
 					Puzzle[i][j] = solns[0];
 					mod = true;
-					#ifdef DEBUG
-					printf("    Wrote solution: %i\n", solns[0]);
-					#endif
+					TurboDebugHelper::getInstance()
+						.writeToBoth(
+							formatString("    Wrote solution: %i", solns[0])
+								.c_str());
 				}
 			}
 			j++;
